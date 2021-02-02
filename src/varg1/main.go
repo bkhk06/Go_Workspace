@@ -23,4 +23,9 @@ func main() {
 	var v3 string = "hello"
 	var v4 float32 = 1.234
 	MyPrintf(v1, v2, v3, v4)
+
+	var b bool
+	b = (1 != 0)              // 编译正确
+	fmt.Println("Result:", b) // 打印结果为Result: true
+
 }
