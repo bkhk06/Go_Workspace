@@ -15,4 +15,9 @@ func say(s string) {
 func main() {
 	go say("world")
 	say("hello")
+
+	for {
+		go fmt.Print(0)
+		fmt.Print(1)
+	}
 }
