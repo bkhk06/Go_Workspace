@@ -10,6 +10,11 @@ func sum(s []int, c chan int) {
 	c <- sum // 把 sum 发送到通道 c
 }
 
+func Count(ch chan int) {
+	ch <- 1
+	fmt.Println("Counting")
+}
+
 func main() {
 	s := []int{7, 2, 8, -9, 4, 0}
 
@@ -20,18 +25,13 @@ func main() {
 
 	fmt.Println(x, y, x+y)
 
-	score := 100
-	switch score {
-	case 90, 100:
-		fmt.Println("Grade: A")
-	case 80:
-		fmt.Println("Grade: B")
-	case 70:
-		fmt.Println("Grade: C")
-	case 60:
-	case 65:
-		fmt.Println("Grade: D")
-	default:
-		fmt.Println("Grade: F")
+	chs := make([]chan int, 10)
+	for i := 0; i < 10; i++ {
+		chs[i] = make(chan int)
+		go Count(chs[i])
 	}
+	for _, ch := range chs {
+		<-ch
+	}
+
 }
