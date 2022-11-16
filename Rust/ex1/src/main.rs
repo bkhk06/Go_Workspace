@@ -1,7 +1,7 @@
 use std::{io, process::Stdio, fmt::Error};
 
 fn main() {
-    println!("Hello, world!");
+    
     println!("Please input your guess: ");
     let mut guess: String = String::new();
 
